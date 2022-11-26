@@ -6,15 +6,14 @@ using std::cout;
 
 Matrix input() {
     int i, j;
-    cout << "Введите число строк и столбцов ";
+    cout << "Enter the number of rows and columns: ";
     cin >> i >> j;
-    cout << "Введите матрицу ";
+    cout << "Enter the matrix: ";
     Matrix matr(i, j);
     return matr;
 }
 int main()
 {
-    setlocale(LC_ALL, "Russian");
     int choise;
     int a = 0;
     int k, i, j;
@@ -22,15 +21,15 @@ int main()
     Matrix matr2;
     Matrix matr3;
     while (a == 0) {
-        std::cout << "Что вы хотите выполнить?" "\n" << "1. Ввод" "\n" << "2. Вывод" "\n" << "3. Сложение двух матриц" "\n" << "4. Умножение двух матриц" "\n" << "5. След матрицы" "\n" << "6. Умножение матрицы на число" "\n" << "7. Количество столбцов" "\n" << "8. Количество строк" "\n" << "9. Вернуть (i,j) элемент " "\n" << "10. Выход" "\n";
+        std::cout << "What do you want to do?" "\n" << "1. Input" "\n" << "2. Output" "\n" << "3. Sum of two matrices" "\n" << "4. Product of two matricies" "\n" << "5. Matrix trace" "\n" << "6. Multiplying matrix by a constant" "\n" << "7.  Number of columns" "\n" << "8. Number of rows" "\n" << "9. Print the (i,j) element " "\n" << "10. Exit" "\n";
         cin >> choise;
         switch (choise)
         {
         case 1:
             //matr1(2);
-            cout << "Введите число строк и столбцов ";
+            cout << "Enter the nuber of rows and columns ";
             cin >> i >> j;
-            cout << "Введите матрицу ";
+            cout << "Enter the matrix: ";
             matr1.make(i, j);
             //matr1 = input();
             break;
@@ -38,17 +37,17 @@ int main()
             matr1.output();
             break;
         case 3:
-            cout << "Введите число строк и столбцов ";
+            cout << "Enter the nuber of rows and columns ";
             cin >> i >> j;
-            cout << '\n' << "Введите матрицу ";
+            cout << '\n' << "Enter the matrix: ";
             matr2.make(i, j);
             matr1.sum_matrix(matr2);
             matr1.output();
             break;
         case 4:
-            cout << "Введите число строк и столбцов ";
+            cout << "Enter the nuber of rows and columns ";
             cin >> i >> j;
-            cout << "Введите матрицу ";
+            cout << "Enter the matrix: ";
             matr2.make(i, j);
             matr1.mult_matrix(matr2);
             break;
@@ -56,7 +55,7 @@ int main()
             matr1.trace();
             break;
         case 6:
-            cout << "Введите множитель ";
+            cout << "Enter the multipler: ";
             cin >> k;
             matr1.mult_number(k);
             break;
@@ -67,12 +66,12 @@ int main()
             cout << matr1.get_row() << '\n';
             break;
         case 9:
-            cout << "Введите i и j ";
+            cout << "Enter i and j ";
             cin >> i >> j;
             cout << matr1.get_elem(i, j) << '\n';
             break;
         case 10:
-            cout << "Всего хорошего";
+            cout << "Goodbye";
             a++;
         default:
             break;
