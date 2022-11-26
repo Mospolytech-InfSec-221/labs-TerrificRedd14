@@ -11,20 +11,20 @@ int main()
     Matrix m1;
     while (a == 0)
     {
-        std::cout << "Что вы хотите выполнить?" "\n" << "1. Ввод нулевой матрицы" "\n" << "2. Ввод матрицы пользователем" "\n" << "3. Сумма матриц" "\n" << "4. Сумма матриц" "\n" << "5. Умножение матриц" "\n" "6. Умножение матриц" "\n" "7. Выход" "\n";
+        std::cout << "What do you want to do?" "\n" << "1. Enter the null matrix" "\n" << "2. Output of the matrix by the user" "\n" << "3. Sum of matricies" "\n" << "4. Sum of matricies" "\n" << "5. Productt of matricies" "\n" "6. Productt of matricies" "\n" "7. Exit" "\n";
         cin >> choise;
         if (choise == 1) {
             int i, j;
-            cout << "Введите число строк и столбцов ";
+            cout << "Enter the number of rows and columns ";
             cin >> i >> j;
             m1.input(i, j); 
         }
         else if(choise == 2){
             int i, j;
-            cout << "Введите число строк и столбцов ";
+            cout << "Enter the number of rows and columns ";
             cin >> i >> j; 
             double* arr = new double[i*j];
-            cout << "Введите матрицу ";
+            cout << "Enter the matrix ";
             for (int k = 0; k < i * j; k++) {
                 cin >> arr[k];
             }
@@ -33,10 +33,10 @@ int main()
         }
         else if (choise == 3) {
             int i, j;
-            cout << "Введите число строк и столбцов ";
+            cout << "Enter the number of rows and columns ";
             cin >> i >> j;
             double* arr = new double[i * j];
-            cout << "Введите матрицу ";
+            cout << "Enter the matrix ";
             for (int k = 0; k < i * j; k++) {
                 cin >> arr[k];
             }
@@ -50,7 +50,7 @@ int main()
             i = m1.get_col();
             j = m1.get_row();
             double* arr = new double[i * j];
-            cout << "Введите матрицу с таким же количеством столбцов и строк ";
+            cout << "Enter the matrix with same number of columns and rows ";
             for (int k = 0; k < i * j; k++) {
                 cin >> arr[k];
             }
@@ -60,10 +60,10 @@ int main()
         }
         else if (choise == 5) {
             int i, j;
-            cout << "Введите число строк и столбцов ";
+            cout << "Enter the number of rows and columns ";
             cin >> i >> j;
             double* arr = new double[i * j];
-            cout << "Введите матрицу ";
+            cout << "Enter the matrix ";
             for (int k = 0; k < i * j; k++) {
                 cin >> arr[k];
             }
@@ -76,7 +76,7 @@ int main()
             i = m1.get_col();
             j = m1.get_row();
             double* arr = new double[i * j];
-            cout << "Введите матрицу с таким же количеством столбцов и строк ";
+            cout << "Enter the matrix with same number of columns and rows ";
             for (int k = 0; k < i * j; k++) {
                 cin >> arr[k];
             }
