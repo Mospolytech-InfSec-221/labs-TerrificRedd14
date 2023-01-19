@@ -10,54 +10,52 @@ Game_Shchebelev::~Game_Shchebelev()
 {
 }
 
-// инициализирующий конструктор
-Game_Shchebelev::Game_Shchebelev(int Game_Shchebelevrs_count)
+Game_Shchebelev::Game_Shchebelev(int Gamers_count)
 {
 	this->year = 1;
 	this->phase = 1;
-	for (int i = 0; i < Game_Shchebelevrs_count; i++)
+	for (int i = 0; i < Gamers_count; i++)
 	{
-		this->Game_Shchebelevrs.push_back(Game_Shchebelevr());
+		this->Gamers.push_back(Game_Shchebelevr());
 		std::cout << "Name >> ";
-		std::cin >> this->Game_Shchebelevrs[i].name;
-		this->Game_Shchebelevrs[i].has_additional_cube = false;
-		this->Game_Shchebelevrs[i].building_tokens = 17;
-		this->Game_Shchebelevrs[i].has_adviser = false;
-		this->Game_Shchebelevrs[i].military_register = 0;
-		this->Game_Shchebelevrs[i].victory_points = 0;
+		std::cin >> this->Gamers[i].name;
+		this->Gamers[i].has_additional_cube = false;
+		this->Gamers[i].building_tokens = 17;
+		this->Gamers[i].has_adviser = false;
+		this->Gamers[i].military_register = 0;
+		this->Gamers[i].victory_points = 0;
 	}
-	this->advisers.push_back({ "Jester", "" }); // шут
-	this->advisers.push_back({ "Squire", "" }); // сквайр
-	this->advisers.push_back({ "Architect", "" }); // зодчий
-	this->advisers.push_back({ "Merchant", "" }); // купец
-	this->advisers.push_back({ "Sergeant", "" }); // сержант
-	this->advisers.push_back({ "Alchemist", "" }); // алхимик
-	this->advisers.push_back({ "Astrologer", "" }); // звездочёт
-	this->advisers.push_back({ "Treasurer", "" }); // казначей
-	this->advisers.push_back({ "Huntress", "" }); // охотница
-	this->advisers.push_back({ "General", "" }); // генерал
-	this->advisers.push_back({ "Gunsmith", "" }); // оружейник
-	this->advisers.push_back({ "Duchess", "" }); // герцогиня
-	this->advisers.push_back({ "Hero", "" }); // герой
-	this->advisers.push_back({ "Smuggler", "" }); // контрабандист
-	this->advisers.push_back({ "Inventor", "" }); // изобретатель
-	this->advisers.push_back({ "Wizard", "" }); // волшебник
-	this->advisers.push_back({ "Queen", "" }); // королева
-	this->advisers.push_back({ "King", "" }); // король
+	this->advisers.push_back({ "Jester", "" }); 
+	this->advisers.push_back({ "Squire", "" }); 
+	this->advisers.push_back({ "Architect", "" }); 
+	this->advisers.push_back({ "Merchant", "" }); 
+	this->advisers.push_back({ "Sergeant", "" }); 
+	this->advisers.push_back({ "Alchemist", "" }); 
+	this->advisers.push_back({ "Astrologer", "" }); 
+	this->advisers.push_back({ "Treasurer", "" }); 
+	this->advisers.push_back({ "Huntress", "" }); 
+	this->advisers.push_back({ "General", "" }); 
+	this->advisers.push_back({ "Gunsmith", "" }); 
+	this->advisers.push_back({ "Duchess", "" }); 
+	this->advisers.push_back({ "Hero", "" }); 
+	this->advisers.push_back({ "Smuggler", "" }); 
+	this->advisers.push_back({ "Inventor", "" }); 
+	this->advisers.push_back({ "Wizard", "" }); 
+	this->advisers.push_back({ "Queen", "" }); 
+	this->advisers.push_back({ "King", "" }); 
 }
 
-// копирующий конструктор
+// ГЄГ®ГЇГЁГ°ГіГѕГ№ГЁГ© ГЄГ®Г­Г±ГІГ°ГіГЄГІГ®Г°
 Game_Shchebelev::Game_Shchebelev(const Game_Shchebelev& c_Game_Shchebelev)
 {
-	// копирование игроков
-	for (int i = 0; i < c_Game_Shchebelev.Game_Shchebelevrs.size(); i++)
+	// ГЄГ®ГЇГЁГ°Г®ГўГ Г­ГЁГҐ ГЁГЈГ°Г®ГЄГ®Гў
+	for (int i = 0; i < c_Game_Shchebelev.Gamers.size(); i++)
 	{
-		if (this->Game_Shchebelevrs.size() < i + 1) // если это новый объект
-			this->Game_Shchebelevrs.push_back(c_Game_Shchebelev.Game_Shchebelevrs[i]);
-		else // если существуюший
-			this->Game_Shchebelevrs[i] = c_Game_Shchebelev.Game_Shchebelevrs[i];
+		if (this->Gamers.size() < i + 1) // ГҐГ±Г«ГЁ ГЅГІГ® Г­Г®ГўГ»Г© Г®ГЎГєГҐГЄГІ
+			this->Gamers.push_back(c_Game_Shchebelev.Gamers[i]);
+		else // ГҐГ±Г«ГЁ Г±ГіГ№ГҐГ±ГІГўГіГѕГёГЁГ©
+			this->Gamers[i] = c_Game_Shchebelev.Gamers[i];
 	}
-	// копирование советников
 	for (int i = 0; i < 18; i++)
 	{
 		if (this->advisers.size() < i + 1)
@@ -74,23 +72,22 @@ void Game_Shchebelev::phase1()
 {
 	std::cout << "##### Year " << this->year << " Phase 1. Help of the king ######" << std::endl;
 	if (this->year == 1 && this->phase == 1) {
-		// на первой фазе выбираем только товар
-		for (int i = 0; i < this->Game_Shchebelevrs.size(); i++)
+		// Г­Г  ГЇГҐГ°ГўГ®Г© ГґГ Г§ГҐ ГўГ»ГЎГЁГ°Г ГҐГ¬ ГІГ®Г«ГјГЄГ® ГІГ®ГўГ Г°
+		for (int i = 0; i < this->Gamers.size(); i++)
 		{
 			std::string product;
-			std::cout << "Game_Shchebelevr " << this->Game_Shchebelevrs[i].name << ", choose your product: gold/wood/stone" << std::endl;
+			std::cout << "Game_Shchebelevr " << this->Gamers[i].name << ", choose your product: gold/wood/stone" << std::endl;
 			std::cin >> product;
-			if (product == "gold") this->Game_Shchebelevrs[i].gold++;
-			else if (product == "wood") this->Game_Shchebelevrs[i].wood++;
-			else if (product == "stone") this->Game_Shchebelevrs[i].stone++;
+			if (product == "gold") this->Gamers[i].gold++;
+			else if (product == "wood") this->Gamers[i].wood++;
+			else if (product == "stone") this->Gamers[i].stone++;
 		}
 	}
 	else
 	{
-		// выбираем по меньшему количеству зданий
 		std::vector<Game_Shchebelevr> candidates;
-		int min_buildings = this->Game_Shchebelevrs[0].buildings.size();
-		for (auto g : this->Game_Shchebelevrs)
+		int min_buildings = this->Gamers[0].buildings.size();
+		for (auto g : this->Gamers)
 		{
 			if (g.buildings.size() < min_buildings)
 			{
@@ -103,13 +100,11 @@ void Game_Shchebelev::phase1()
 				candidates.push_back(g);
 			}
 		}
-		// если кандидат один
 		if (candidates.size() == 1)
 		{
-			for (int i = 0; i < this->Game_Shchebelevrs.size(); i++)
-				if (this->Game_Shchebelevrs[i].name == candidates[0].name) this->Game_Shchebelevrs[i].has_additional_cube = true;
+			for (int i = 0; i < this->Gamers.size(); i++)
+				if (this->Gamers[i].name == candidates[0].name) this->Gamers[i].has_additional_cube = true;
 		}
-		// если их несколько то сравниваем по сумме товаров
 		else {
 			std::vector<Game_Shchebelevr> new_candidates;
 			int count = 0;
@@ -125,26 +120,24 @@ void Game_Shchebelev::phase1()
 				}
 				else if (sum_min == sum_p) new_candidates.push_back(c);
 			}
-			// если нашёлся кандидат
 			if (count == 1)
 			{
-				for (int i = 0; i < this->Game_Shchebelevrs.size(); i++)
-					if (this->Game_Shchebelevrs[i].name == new_candidates[0].name) this->Game_Shchebelevrs[i].has_additional_cube = true;
+				for (int i = 0; i < this->Gamers.size(); i++)
+					if (this->Gamers[i].name == new_candidates[0].name) this->Gamers[i].has_additional_cube = true;
 			}
 			else
 			{
-				// если их несколько то выдаём товары всем
-				for (int i = 0; i < this->Game_Shchebelevrs.size(); i++)
+				for (int i = 0; i < this->Gamers.size(); i++)
 				{
 					for (auto nc : new_candidates)
-						if (nc.name == this->Game_Shchebelevrs[i].name)
+						if (nc.name == this->Gamers[i].name)
 						{
 							std::string product;
-							std::cout << "Game_Shchebelevr " << this->Game_Shchebelevrs[i].name << ", choose your product: gold/wood/stone";
+							std::cout << "Game_Shchebelevr " << this->Gamers[i].name << ", choose your product: gold/wood/stone";
 							std::cin >> product;
-							if (product == "gold") this->Game_Shchebelevrs[i].gold++;
-							else if (product == "wood") this->Game_Shchebelevrs[i].wood++;
-							else if (product == "stone") this->Game_Shchebelevrs[i].stone++;
+							if (product == "gold") this->Gamers[i].gold++;
+							else if (product == "wood") this->Gamers[i].wood++;
+							else if (product == "stone") this->Gamers[i].stone++;
 						}
 				}
 			}
@@ -154,12 +147,11 @@ void Game_Shchebelev::phase1()
 
 void Game_Shchebelev::phase3()
 {
-	// выдаём ПО тем у кого больше всего зданий
 	std::cout << "##### Year " << this->year << " Phase 3. Royal award ######" << std::endl;
 	std::vector<Game_Shchebelevr> candidates;
-	int max_buildings = this->Game_Shchebelevrs[0].buildings.size();
-	// поиск кандидатов
-	for (auto g : this->Game_Shchebelevrs)
+	int max_buildings = this->Gamers[0].buildings.size();
+	// ГЇГ®ГЁГ±ГЄ ГЄГ Г­Г¤ГЁГ¤Г ГІГ®Гў
+	for (auto g : this->Gamers)
 	{
 		if (g.buildings.size() > max_buildings)
 		{
@@ -169,15 +161,14 @@ void Game_Shchebelev::phase3()
 		}
 		else if (g.buildings.size() == max_buildings) candidates.push_back(g);
 	}
-	// начисление очков
-	for (int i = 0; i < this->Game_Shchebelevrs.size(); i++)
+	for (int i = 0; i < this->Gamers.size(); i++)
 	{
 		for (auto c : candidates)
 		{
-			if (this->Game_Shchebelevrs[i].name == c.name)
+			if (this->Gamers[i].name == c.name)
 			{
 				std::cout << "Game_Shchebelevr " << c.name << " receives victory point" << std::endl;
-				this->Game_Shchebelevrs[i].victory_points++;
+				this->Gamers[i].victory_points++;
 			}
 		}
 	}
@@ -185,12 +176,10 @@ void Game_Shchebelev::phase3()
 
 void Game_Shchebelev::phase5()
 {
-	// королевский посланник
 	std::cout << "##### Year " << this->year << " Phase 5. Royal envoy ######" << std::endl;
-	// выбираем по меньшему количеству зданий
-	std::vector<Game_Shchebelevr> candidates;
-	int min_buildings = this->Game_Shchebelevrs[0].buildings.size();
-	for (auto g : this->Game_Shchebelevrs)
+	std::vector<Gamer> candidates;
+	int min_buildings = this->Gamers[0].buildings.size();
+	for (auto g : this->Gamers)
 	{
 		if (g.buildings.size() < min_buildings)
 		{
@@ -203,15 +192,13 @@ void Game_Shchebelev::phase5()
 			candidates.push_back(g);
 		}
 	}
-	// если кандидат один
 	if (candidates.size() == 1)
 	{
-		for (int i = 0; i < this->Game_Shchebelevrs.size(); i++)
-			if (this->Game_Shchebelevrs[i].name == candidates[0].name) this->Game_Shchebelevrs[i].has_adviser = true;
+		for (int i = 0; i < this->Gamers.size(); i++)
+			if (this->Gamers[i].name == candidates[0].name) this->Gamers[i].has_adviser = true;
 	}
-	// если их несколько то сравниваем по сумме товаров
 	else {
-		std::vector<Game_Shchebelevr> new_candidates;
+		std::vector<Gamer> new_candidates;
 		int count = 0;
 		int sum_min = candidates[0].gold + candidates[0].wood + candidates[0].stone;
 		for (auto c : candidates)
@@ -225,19 +212,17 @@ void Game_Shchebelev::phase5()
 			}
 			else if (sum_min == sum_p) new_candidates.push_back(c);
 		}
-		// если нашёлся кандидат
 		if (count == 1)
 		{
-			for (int i = 0; i < this->Game_Shchebelevrs.size(); i++)
-				if (this->Game_Shchebelevrs[i].name == new_candidates[0].name) this->Game_Shchebelevrs[i].has_adviser = true;
+			for (int i = 0; i < this->Gamers.size(); i++)
+				if (this->Gamers[i].name == new_candidates[0].name) this->Games[i].has_adviser = true;
 		}
 	}
-	for (auto g : this->Game_Shchebelevrs) std::cout << "Game_Shchebelevr " << g.name << " now has royal envoy" << std::endl;
+	for (auto g : this->Gamers) std::cout << "Gamer " << g.name << " now has royal envoy" << std::endl;
 }
 
 void Game_Shchebelev::phase7()
 {
-	// наём воинов
 	std::cout << "##### Year " << this->year << " Phase 3. Hiring warriors ######" << std::endl;
 
 }
