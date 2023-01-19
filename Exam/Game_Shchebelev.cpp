@@ -45,15 +45,13 @@ Game_Shchebelev::Game_Shchebelev(int Gamers_count)
 	this->advisers.push_back({ "King", "" }); 
 }
 
-// êîïèðóþùèé êîíñòðóêòîð
 Game_Shchebelev::Game_Shchebelev(const Game_Shchebelev& c_Game_Shchebelev)
 {
-	// êîïèðîâàíèå èãðîêîâ
 	for (int i = 0; i < c_Game_Shchebelev.Gamers.size(); i++)
 	{
-		if (this->Gamers.size() < i + 1) // åñëè ýòî íîâûé îáúåêò
+		if (this->Gamers.size() < i + 1) 
 			this->Gamers.push_back(c_Game_Shchebelev.Gamers[i]);
-		else // åñëè ñóùåñòâóþøèé
+		else
 			this->Gamers[i] = c_Game_Shchebelev.Gamers[i];
 	}
 	for (int i = 0; i < 18; i++)
@@ -72,7 +70,6 @@ void Game_Shchebelev::phase1()
 {
 	std::cout << "##### Year " << this->year << " Phase 1. Help of the king ######" << std::endl;
 	if (this->year == 1 && this->phase == 1) {
-		// íà ïåðâîé ôàçå âûáèðàåì òîëüêî òîâàð
 		for (int i = 0; i < this->Gamers.size(); i++)
 		{
 			std::string product;
@@ -150,7 +147,6 @@ void Game_Shchebelev::phase3()
 	std::cout << "##### Year " << this->year << " Phase 3. Royal award ######" << std::endl;
 	std::vector<Game_Shchebelevr> candidates;
 	int max_buildings = this->Gamers[0].buildings.size();
-	// ïîèñê êàíäèäàòîâ
 	for (auto g : this->Gamers)
 	{
 		if (g.buildings.size() > max_buildings)
