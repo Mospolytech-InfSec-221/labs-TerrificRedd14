@@ -3,7 +3,6 @@
 #include <vector>
 #include <string>
 
-// Характеристики игрока
 typedef struct Game_Shchebelevr {
 	std::string name;
 	int gold;
@@ -12,17 +11,16 @@ typedef struct Game_Shchebelevr {
 	int cube_1;
 	int cube_2;
 	int cube_3;
-	bool has_additional_cube; // доп. кубик
-	int additional_cude; // доп. кубик
-	int building_tokens; // жетоны зданий
-	bool has_adviser; // советник
-	int military_register; // значение воинского реестра
-	int victory_points; // победные очки
-	std::vector<std::string> buildings; // вектор построек
+	bool has_additional_cube; 
+	int additional_cude;
+	int building_tokens; 
+	bool has_adviser;
+	int military_register; 
+	int victory_points; 
+	std::vector<std::string> buildings; 
 
 } Game_Shchebelevr;
 
-// советник и занявший его игрок
 typedef struct Adviser {
 	std::string adviser_name;
 	std::string Game_Shchebelevr_name;
