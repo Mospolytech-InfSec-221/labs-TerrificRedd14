@@ -128,10 +128,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="221_351_Shchebelev.cpp" />
-    <ClCompile Include="Game_Shchebelev.cpp" />
+    <ClCompile Include="game_Shchebelev.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game_Shchebelev.h" />
+    <ClInclude Include="game_Shchebelev.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
