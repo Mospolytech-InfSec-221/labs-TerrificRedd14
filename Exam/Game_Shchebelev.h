@@ -3,7 +3,11 @@
 #include <vector>
 #include <string>
 
+<<<<<<< HEAD
 typedef struct Gamer {
+=======
+typedef struct Game_Shchebelevr {
+>>>>>>> 6a73d1c07c77ad28ccc84c1d250c59ec07fb657e
 	std::string name;
 	int move;
 	int gold;
@@ -12,6 +16,7 @@ typedef struct Gamer {
 	int cube_1;
 	int cube_2;
 	int cube_3;
+<<<<<<< HEAD
 	bool has_additional_cube;
 	int additional_cube;
 	int building_tokens;
@@ -20,6 +25,15 @@ typedef struct Gamer {
 	int military_register;
 	int victory_points;
 	std::vector<std::string> buildings;
+=======
+	bool has_additional_cube; 
+	int additional_cude;
+	int building_tokens; 
+	bool has_adviser;
+	int military_register; 
+	int victory_points; 
+	std::vector<std::string> buildings; 
+>>>>>>> 6a73d1c07c77ad28ccc84c1d250c59ec07fb657e
 
 } Gamer;
 
@@ -57,4 +71,5 @@ public:
 	void phase246_bones();
 	void phase246_advisor();
 };
+
 
